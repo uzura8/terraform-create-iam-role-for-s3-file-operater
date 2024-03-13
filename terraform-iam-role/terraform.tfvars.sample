@@ -1,0 +1,4 @@
+prj_prefix     = "common"
+aws_account_id = "your-aws-account-id"
+
+target_role_name = "create-s3-file-operator-role"
