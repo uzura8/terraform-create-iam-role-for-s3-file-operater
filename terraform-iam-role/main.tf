@@ -1,5 +1,6 @@
 variable "prj_prefix" {}
 variable "aws_account_id" {}
+variable "deploy_bucket_name" {}
 variable "target_role_name" {}
 
 resource "aws_iam_policy" "s3_file_operator" {
@@ -9,6 +10,21 @@ resource "aws_iam_policy" "s3_file_operator" {
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
+      {
+        "Sid" : "HandleBackendPolicy",
+        "Effect" : "Allow",
+        "Action" : [
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject"
+        ],
+        "Resource" : [
+          "arn:aws:s3:::${var.deploy_bucket_name}",
+          "arn:aws:s3:::${var.deploy_bucket_name}/*"
+        ]
+      },
       {
         "Sid" : "VisualEditor0",
         "Effect" : "Allow",

@@ -1,4 +1,5 @@
 prj_prefix     = "common"
 aws_account_id = "your-aws-account-id"
+deploy_bucket_name = "your-deployment-bucket"
 
 target_role_name = "create-s3-file-operator-role"
