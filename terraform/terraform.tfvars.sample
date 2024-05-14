@@ -1,4 +1,8 @@
 # General
 user_name      = ""
 bucket_name    = ""
-directory_name = ""
+target_key_prd = "your-service/prd"
+target_key_dev = "your-service/dev"
+accept_ips = [
+  "xxx.xxx.xxx.xxx/32",
+]
